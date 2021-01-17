@@ -39,12 +39,11 @@ describe('/albums', () => {
                 })
                 .then((res) => {
                     expect(res.status).to.equal(201);
-
                     Album.findByPk(res.body.id, { raw: true }).then((album) => {
                         expect(album.name).to.equal('InnerSpeaker');
                         expect(album.year).to.equal(2010);
                         expect(album.artistId).to.equal(artist.id);
-                        done();
+                        done()
                     });
                 });
         });
